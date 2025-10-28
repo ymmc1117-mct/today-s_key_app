@@ -65,7 +65,7 @@ function initSlotList() {
         `<div class="slot-item" data-index="${index}">${scale.german}</div>`
     ).join('');
     // 初期位置を中央に設定
-    slotList.style.transform = 'translateY(75px)';
+    slotList.style.transform = 'translateY(80px)';
     updateOpacity();
 }
 
