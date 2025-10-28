@@ -140,7 +140,7 @@ function spin() {
         
         const currentPos = easeOut * targetPosition;
         const offset = currentPos * 80;
-        slotList.style.transform = `translateY(calc(-${offset}px + 75px))`;
+        slotList.style.transform = `translateY(calc(-${offset}px + 80px))`;
         
         updateOpacity();
         
