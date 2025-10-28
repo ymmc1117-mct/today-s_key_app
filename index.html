@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Today's Key">
+    <title>Today's Key - ピアノ音階スロット</title>
+    
+    <!-- ホーム画面アイコン -->
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS用メタタグ -->
+    <meta name="theme-color" content="#fce7f3">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- ヘッダー -->
+            <div class="header">
+                <div class="title-wrapper">
+                    <svg class="icon-left" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    <h1 class="title">Today's Key</h1>
+                    <svg class="icon-right" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                </div>
+                <p class="subtitle">今日はどの音階を練習しようかな♪</p>
+            </div>
+
+            <!-- スロットマシン -->
+            <div class="slot-container">
+                <div class="slot-window">
+                    <div class="gradient-top"></div>
+                    <div class="gradient-bottom"></div>
+                    <div class="selection-frame"></div>
+                    <div class="slot-list" id="slotList"></div>
+                </div>
+                <button class="start-button" id="startButton">スタート</button>
+            </div>
+
+            <!-- 結果表示 -->
+            <div class="result-container" id="resultContainer" style="display: none;">
+                <p class="result-label">今日の音階は</p>
+                <p class="result-scale-german" id="resultGerman"></p>
+                <p class="result-scale-japanese" id="resultJapanese"></p>
+                <p class="result-message">がんばって練習しよう</p>
+            </div>
+
+            <!-- 練習履歴ボタン -->
+            <button class="history-button" id="historyButton">
+                <svg class="history-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                    <path d="M12 7v5l4 2"/>
+                </svg>
+                <span id="historyButtonText">練習履歴を見る</span>
+            </button>
+
+            <!-- 練習履歴表示 -->
+            <div class="history-container" id="historyContainer" style="display: none;">
+                <h3 class="history-title">練習履歴</h3>
+                <div id="historyList"></div>
+            </div>
+
+            <!-- 一覧表ボタン -->
+            <button class="table-button" id="tableButton">
+                <svg class="table-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 3h18v18H3z"/>
+                    <path d="M3 9h18"/>
+                    <path d="M3 15h18"/>
+                    <path d="M9 3v18"/>
+                </svg>
+                <span id="tableButtonText">音階一覧表を見る</span>
+            </button>
+
+            <!-- ä¸€è¦§è¡¨è¡¨ç¤º -->
+            <div class="table-container" id="tableContainer" style="display: none;">
+                <h3 class="table-title">音階一覧表</h3>
+                
+                <div class="table-section">
+                    <h4 class="table-section-title">長調 (dur / ドゥア)</h4>
+                    <div class="scale-grid">
+                        <div class="scale-card">
+                            <div class="scale-german">C dur</div>
+                            <div class="scale-reading">ツェー・ドゥア</div>
+                            <div class="scale-japanese">ハ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">G dur</div>
+                            <div class="scale-reading">ゲー・ドゥア</div>
+                            <div class="scale-japanese">ト長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">D dur</div>
+                            <div class="scale-reading">デー・ドゥア</div>
+                            <div class="scale-japanese">ニ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">A dur</div>
+                            <div class="scale-reading">アー・ドゥア</div>
+                            <div class="scale-japanese">イ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">E dur</div>
+                            <div class="scale-reading">エー・ドゥア</div>
+                            <div class="scale-japanese">ホ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">B dur</div>
+                            <div class="scale-reading">ベー・ドゥア</div>
+                            <div class="scale-japanese">ロ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">F# dur</div>
+                            <div class="scale-reading">フィス・ドゥア</div>
+                            <div class="scale-japanese">嬰ヘ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">Des dur</div>
+                            <div class="scale-reading">デス・ドゥア</div>
+                            <div class="scale-japanese">変ニ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">As dur</div>
+                            <div class="scale-reading">アス・ドゥア</div>
+                            <div class="scale-japanese">変イ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">Es dur</div>
+                            <div class="scale-reading">エス・ドゥア</div>
+                            <div class="scale-japanese">変ホ長調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">B dur</div>
+                            <div class="scale-reading">ãƒ™ãƒ¼ãƒ»ãƒ‰ã‚¥ã‚¢</div>
+                            <div class="scale-japanese">å¤‰ãƒ­é•·èª¿</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">F dur</div>
+                            <div class="scale-reading">エフ・ドゥア</div>
+                            <div class="scale-japanese">ヘ長調</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <h4 class="table-section-title">短調 (moll / モル)</h4>
+                    <div class="scale-grid">
+                        <div class="scale-card">
+                            <div class="scale-german">a moll</div>
+                            <div class="scale-reading">アー・モル</div>
+                            <div class="scale-japanese">イ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">e moll</div>
+                            <div class="scale-reading">エー・モル</div>
+                            <div class="scale-japanese">ホ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">h moll</div>
+                            <div class="scale-reading">ハー・モル</div>
+                            <div class="scale-japanese">ロ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">fis moll</div>
+                            <div class="scale-reading">フィス・モル</div>
+                            <div class="scale-japanese">嬰ヘ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">cis moll</div>
+                            <div class="scale-reading">ツィス・モル</div>
+                            <div class="scale-japanese">嬰ハ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">gis moll</div>
+                            <div class="scale-reading">ギス・モル</div>
+                            <div class="scale-japanese">嬰ト短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">dis moll</div>
+                            <div class="scale-reading">ディス・モル</div>
+                            <div class="scale-japanese">嬰ニ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">b moll</div>
+                            <div class="scale-reading">ベー・モル</div>
+                            <div class="scale-japanese">変ロ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">f moll</div>
+                            <div class="scale-reading">エフ・モル</div>
+                            <div class="scale-japanese">ヘ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">c moll</div>
+                            <div class="scale-reading">ツェー・モル</div>
+                            <div class="scale-japanese">ハ短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">g moll</div>
+                            <div class="scale-reading">ゲー・モル</div>
+                            <div class="scale-japanese">ト短調</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">d moll</div>
+                            <div class="scale-reading">デー・モル</div>
+                            <div class="scale-japanese">ニ短調</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

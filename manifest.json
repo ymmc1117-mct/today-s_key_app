@@ -1,0 +1,18 @@
+{
+  "name": "Today's Key - ピアノ音階スロット",
+  "short_name": "Today's Key",
+  "description": "今日練習するピアノの音階をランダムに選んでくれるスロットアプリ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fce7f3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
