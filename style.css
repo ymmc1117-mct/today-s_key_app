@@ -52,13 +52,13 @@ body {
     font-size: 1rem;
 }
 
-/* ã‚¹ãƒ­ãƒƒãƒˆã‚³ãƒ³ãƒ†ãƒŠ */
+/* スロットコンテナ */
 .slot-container {
     background: white;
     border-radius: 1.5rem;
     box-shadow: 0 4px 15px rgba(249, 168, 212, 0.3);
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .slot-window {
@@ -201,7 +201,7 @@ body {
     gap: 0.5rem;
     width: 100%;
     padding: 0.75rem 1rem;
-    margin: 1rem 0 1.5rem 0; /* 下の余白を1.5remに増加 */
+    margin: 0 0 1.5rem 0;
     background: white;
     border: 1px solid #f3f4f6;
     border-radius: 9999px;
@@ -333,7 +333,7 @@ body {
     box-shadow: 0 4px 15px rgba(249, 168, 212, 0.3);
     height: 3.5rem;
     padding: 0 1.5rem;
-    margin: 1.5rem 0; /* 上下の余白を1.5remに増加 */
+    margin: 0 0 0 0;
 }
 
 .table-button:hover {
