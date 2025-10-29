@@ -121,7 +121,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: #ec4899;
     opacity: 0.3;
@@ -388,9 +388,13 @@ body {
 .scale-card {
     background: #fdf2f8;
     border-radius: 0.75rem;
-    padding: 0.75rem;
+    padding: 0.75rem 0.5rem;
     border: 1px solid #fce7f3;
     text-align: center;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .scale-german {
@@ -409,6 +413,16 @@ body {
 .scale-japanese {
     font-size: 0.875rem;
     color: #f9a8d4;
+    margin-bottom: 0.25rem;
+}
+
+.scale-key-signature {
+    font-size: 0.8rem;
+    color: #f472b6;
+    font-weight: bold;
+    margin-top: auto;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
 }
 
 /* ã‚¿ãƒ–ãƒ¬ãƒƒãƒˆå¯¾å¿œ */
