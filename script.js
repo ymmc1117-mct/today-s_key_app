@@ -7,7 +7,7 @@ const scales = [
     { german: 'A dur', reading: 'アー・ドゥア', japanese: 'イ長調', keySignature: '♯♯♯' },
     { german: 'E dur', reading: 'エー・ドゥア', japanese: 'ホ長調', keySignature: '♯♯♯♯' },
     { german: 'B dur', reading: 'ベー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯' },
-    { german: 'F# dur', reading: 'フィス・ドゥア', japanese: '嬰ヘ長調', keySignature: '♯♯♯♯♯♯' },
+    { german: 'Ges dur', reading: 'ゲス・ドゥア', japanese: '変ト長調', keySignature: '♭♭♭♭♭♭' },
     { german: 'Des dur', reading: 'デス・ドゥア', japanese: '変ニ長調', keySignature: '♭♭♭♭♭' },
     { german: 'As dur', reading: 'アス・ドゥア', japanese: '変イ長調', keySignature: '♭♭♭♭' },
     { german: 'Es dur', reading: 'エス・ドゥア', japanese: '変ホ長調', keySignature: '♭♭♭' },
@@ -20,7 +20,7 @@ const scales = [
     { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯' },
     { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯' },
     { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯' },
-    { german: 'dis moll', reading: 'ディス・モル', japanese: '嬰ニ短調', keySignature: '♯♯♯♯♯♯' },
+    { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭' },
     { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭' },
     { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭' },
     { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭' },
@@ -176,10 +176,12 @@ function toggleHistory() {
     if (showHistory) {
         historyButtonText.textContent = '履歴を閉じる';
         historyContainer.style.display = 'block';
+        historyButton.classList.add('active');
         renderHistory();
     } else {
         historyButtonText.textContent = '練習履歴を見る';
         historyContainer.style.display = 'none';
+        historyButton.classList.remove('active');
     }
 }
 
@@ -228,9 +230,11 @@ function toggleTable() {
     if (showTable) {
         tableButtonText.textContent = '一覧表を閉じる';
         tableContainer.style.display = 'block';
+        tableButton.classList.add('active');
     } else {
         tableButtonText.textContent = '音階一覧表を見る';
         tableContainer.style.display = 'none';
+        tableButton.classList.remove('active');
     }
 }
 
