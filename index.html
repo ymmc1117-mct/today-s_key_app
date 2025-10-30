@@ -89,8 +89,12 @@
                 <h3 class="table-title">音階一覧表</h3>
                 
                 <div class="table-section">
-                    <h4 class="table-section-title">長調 (dur / ドゥア)</h4>
+                    <div class="table-section-header">
+                        <h4 class="table-section-title">長調 (dur / ドゥア)</h4>
+                        <h4 class="table-section-title">短調 (moll / モル)</h4>
+                    </div>
                     <div class="scale-grid">
+                        <!-- 調号なし -->
                         <div class="scale-card">
                             <div class="scale-german">C dur</div>
                             <div class="scale-reading">ツェー・ドゥア</div>
@@ -98,82 +102,18 @@
                             <div class="scale-key-signature">調号なし</div>
                         </div>
                         <div class="scale-card">
-                            <div class="scale-german">G dur</div>
-                            <div class="scale-reading">ゲー・ドゥア</div>
-                            <div class="scale-japanese">ト長調</div>
-                            <div class="scale-key-signature">♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">D dur</div>
-                            <div class="scale-reading">デー・ドゥア</div>
-                            <div class="scale-japanese">ニ長調</div>
-                            <div class="scale-key-signature">♯♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">A dur</div>
-                            <div class="scale-reading">アー・ドゥア</div>
-                            <div class="scale-japanese">イ長調</div>
-                            <div class="scale-key-signature">♯♯♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">E dur</div>
-                            <div class="scale-reading">エー・ドゥア</div>
-                            <div class="scale-japanese">ホ長調</div>
-                            <div class="scale-key-signature">♯♯♯♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">B dur</div>
-                            <div class="scale-reading">ベー・ドゥア</div>
-                            <div class="scale-japanese">ロ長調</div>
-                            <div class="scale-key-signature">♯♯♯♯♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">F# dur</div>
-                            <div class="scale-reading">フィス・ドゥア</div>
-                            <div class="scale-japanese">嬰ヘ長調</div>
-                            <div class="scale-key-signature">♯♯♯♯♯♯</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">Des dur</div>
-                            <div class="scale-reading">デス・ドゥア</div>
-                            <div class="scale-japanese">変ニ長調</div>
-                            <div class="scale-key-signature">♭♭♭♭♭</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">As dur</div>
-                            <div class="scale-reading">アス・ドゥア</div>
-                            <div class="scale-japanese">変イ長調</div>
-                            <div class="scale-key-signature">♭♭♭♭</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">Es dur</div>
-                            <div class="scale-reading">エス・ドゥア</div>
-                            <div class="scale-japanese">変ホ長調</div>
-                            <div class="scale-key-signature">♭♭♭</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">B dur</div>
-                            <div class="scale-reading">ベー・ドゥア</div>
-                            <div class="scale-japanese">変ロ長調</div>
-                            <div class="scale-key-signature">♭♭</div>
-                        </div>
-                        <div class="scale-card">
-                            <div class="scale-german">F dur</div>
-                            <div class="scale-reading">エフ・ドゥア</div>
-                            <div class="scale-japanese">ヘ長調</div>
-                            <div class="scale-key-signature">♭</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table-section">
-                    <h4 class="table-section-title">短調 (moll / モル)</h4>
-                    <div class="scale-grid">
-                        <div class="scale-card">
                             <div class="scale-german">a moll</div>
                             <div class="scale-reading">アー・モル</div>
                             <div class="scale-japanese">イ短調</div>
                             <div class="scale-key-signature">調号なし</div>
+                        </div>
+                        
+                        <!-- ♯1個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">G dur</div>
+                            <div class="scale-reading">ゲー・ドゥア</div>
+                            <div class="scale-japanese">ト長調</div>
+                            <div class="scale-key-signature">♯</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">e moll</div>
@@ -181,11 +121,27 @@
                             <div class="scale-japanese">ホ短調</div>
                             <div class="scale-key-signature">♯</div>
                         </div>
+                        
+                        <!-- ♯2個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">D dur</div>
+                            <div class="scale-reading">デー・ドゥア</div>
+                            <div class="scale-japanese">ニ長調</div>
+                            <div class="scale-key-signature">♯♯</div>
+                        </div>
                         <div class="scale-card">
                             <div class="scale-german">h moll</div>
                             <div class="scale-reading">ハー・モル</div>
                             <div class="scale-japanese">ロ短調</div>
                             <div class="scale-key-signature">♯♯</div>
+                        </div>
+                        
+                        <!-- ♯3個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">A dur</div>
+                            <div class="scale-reading">アー・ドゥア</div>
+                            <div class="scale-japanese">イ長調</div>
+                            <div class="scale-key-signature">♯♯♯</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">fis moll</div>
@@ -193,11 +149,27 @@
                             <div class="scale-japanese">嬰ヘ短調</div>
                             <div class="scale-key-signature">♯♯♯</div>
                         </div>
+                        
+                        <!-- ♯4個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">E dur</div>
+                            <div class="scale-reading">エー・ドゥア</div>
+                            <div class="scale-japanese">ホ長調</div>
+                            <div class="scale-key-signature">♯♯♯♯</div>
+                        </div>
                         <div class="scale-card">
                             <div class="scale-german">cis moll</div>
                             <div class="scale-reading">ツィス・モル</div>
                             <div class="scale-japanese">嬰ハ短調</div>
                             <div class="scale-key-signature">♯♯♯♯</div>
+                        </div>
+                        
+                        <!-- ♯5個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">B dur</div>
+                            <div class="scale-reading">ベー・ドゥア</div>
+                            <div class="scale-japanese">ロ長調</div>
+                            <div class="scale-key-signature">♯♯♯♯♯</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">gis moll</div>
@@ -205,11 +177,27 @@
                             <div class="scale-japanese">嬰ト短調</div>
                             <div class="scale-key-signature">♯♯♯♯♯</div>
                         </div>
+                        
+                        <!-- ♭6個 -->
                         <div class="scale-card">
-                            <div class="scale-german">dis moll</div>
-                            <div class="scale-reading">ディス・モル</div>
-                            <div class="scale-japanese">嬰ニ短調</div>
-                            <div class="scale-key-signature">♯♯♯♯♯♯</div>
+                            <div class="scale-german">Ges dur</div>
+                            <div class="scale-reading">ゲス・ドゥア</div>
+                            <div class="scale-japanese">変ト長調</div>
+                            <div class="scale-key-signature">♭♭♭♭♭♭</div>
+                        </div>
+                        <div class="scale-card">
+                            <div class="scale-german">es moll</div>
+                            <div class="scale-reading">エス・モル</div>
+                            <div class="scale-japanese">変ホ短調</div>
+                            <div class="scale-key-signature">♭♭♭♭♭♭</div>
+                        </div>
+                        
+                        <!-- ♭5個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">Des dur</div>
+                            <div class="scale-reading">デス・ドゥア</div>
+                            <div class="scale-japanese">変ニ長調</div>
+                            <div class="scale-key-signature">♭♭♭♭♭</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">b moll</div>
@@ -217,11 +205,27 @@
                             <div class="scale-japanese">変ロ短調</div>
                             <div class="scale-key-signature">♭♭♭♭♭</div>
                         </div>
+                        
+                        <!-- ♭4個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">As dur</div>
+                            <div class="scale-reading">アス・ドゥア</div>
+                            <div class="scale-japanese">変イ長調</div>
+                            <div class="scale-key-signature">♭♭♭♭</div>
+                        </div>
                         <div class="scale-card">
                             <div class="scale-german">f moll</div>
                             <div class="scale-reading">エフ・モル</div>
                             <div class="scale-japanese">ヘ短調</div>
                             <div class="scale-key-signature">♭♭♭♭</div>
+                        </div>
+                        
+                        <!-- ♭3個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">Es dur</div>
+                            <div class="scale-reading">エス・ドゥア</div>
+                            <div class="scale-japanese">変ホ長調</div>
+                            <div class="scale-key-signature">♭♭♭</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">c moll</div>
@@ -229,11 +233,27 @@
                             <div class="scale-japanese">ハ短調</div>
                             <div class="scale-key-signature">♭♭♭</div>
                         </div>
+                        
+                        <!-- ♭2個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">B dur</div>
+                            <div class="scale-reading">ベー・ドゥア</div>
+                            <div class="scale-japanese">変ロ長調</div>
+                            <div class="scale-key-signature">♭♭</div>
+                        </div>
                         <div class="scale-card">
                             <div class="scale-german">g moll</div>
                             <div class="scale-reading">ゲー・モル</div>
                             <div class="scale-japanese">ト短調</div>
                             <div class="scale-key-signature">♭♭</div>
+                        </div>
+                        
+                        <!-- ♭1個 -->
+                        <div class="scale-card">
+                            <div class="scale-german">F dur</div>
+                            <div class="scale-reading">エフ・ドゥア</div>
+                            <div class="scale-japanese">ヘ長調</div>
+                            <div class="scale-key-signature">♭</div>
                         </div>
                         <div class="scale-card">
                             <div class="scale-german">d moll</div>
