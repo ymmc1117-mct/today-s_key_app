@@ -1,31 +1,31 @@
 // 音階データ
 const scales = [
     // 長調
-    { german: 'C dur', japanese: 'ハ長調' },
-    { german: 'G dur', japanese: 'ト長調' },
-    { german: 'D dur', japanese: 'ニ長調' },
-    { german: 'A dur', japanese: 'イ長調' },
-    { german: 'E dur', japanese: 'ホ長調' },
-    { german: 'B dur', japanese: 'ロ長調' },
-    { german: 'F# dur', japanese: '嬰ヘ長調' },
-    { german: 'Des dur', japanese: '変ニ長調' },
-    { german: 'As dur', japanese: '変イ長調' },
-    { german: 'Es dur', japanese: '変ホ長調' },
-    { german: 'B dur', japanese: '変ロ長調' },
-    { german: 'F dur', japanese: 'ヘ長調' },
+    { german: 'C dur', reading: 'ツェー・ドゥア', japanese: 'ハ長調', keySignature: '調号なし' },
+    { german: 'G dur', reading: 'ゲー・ドゥア', japanese: 'ト長調', keySignature: '♯' },
+    { german: 'D dur', reading: 'デー・ドゥア', japanese: 'ニ長調', keySignature: '♯♯' },
+    { german: 'A dur', reading: 'アー・ドゥア', japanese: 'イ長調', keySignature: '♯♯♯' },
+    { german: 'E dur', reading: 'エー・ドゥア', japanese: 'ホ長調', keySignature: '♯♯♯♯' },
+    { german: 'B dur', reading: 'ベー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯' },
+    { german: 'F# dur', reading: 'フィス・ドゥア', japanese: '嬰ヘ長調', keySignature: '♯♯♯♯♯♯' },
+    { german: 'Des dur', reading: 'デス・ドゥア', japanese: '変ニ長調', keySignature: '♭♭♭♭♭' },
+    { german: 'As dur', reading: 'アス・ドゥア', japanese: '変イ長調', keySignature: '♭♭♭♭' },
+    { german: 'Es dur', reading: 'エス・ドゥア', japanese: '変ホ長調', keySignature: '♭♭♭' },
+    { german: 'B dur', reading: 'ベー・ドゥア', japanese: '変ロ長調', keySignature: '♭♭' },
+    { german: 'F dur', reading: 'エフ・ドゥア', japanese: 'ヘ長調', keySignature: '♭' },
     // 短調
-    { german: 'a moll', japanese: 'イ短調' },
-    { german: 'e moll', japanese: 'ホ短調' },
-    { german: 'h moll', japanese: 'ロ短調' },
-    { german: 'fis moll', japanese: '嬰ヘ短調' },
-    { german: 'cis moll', japanese: '嬰ハ短調' },
-    { german: 'gis moll', japanese: '嬰ト短調' },
-    { german: 'dis moll', japanese: '嬰ニ短調' },
-    { german: 'b moll', japanese: '変ロ短調' },
-    { german: 'f moll', japanese: 'ヘ短調' },
-    { german: 'c moll', japanese: 'ハ短調' },
-    { german: 'g moll', japanese: 'ト短調' },
-    { german: 'd moll', japanese: 'ニ短調' }
+    { german: 'a moll', reading: 'アー・モル', japanese: 'イ短調', keySignature: '調号なし' },
+    { german: 'e moll', reading: 'エー・モル', japanese: 'ホ短調', keySignature: '♯' },
+    { german: 'h moll', reading: 'ハー・モル', japanese: 'ロ短調', keySignature: '♯♯' },
+    { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯' },
+    { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯' },
+    { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯' },
+    { german: 'dis moll', reading: 'ディス・モル', japanese: '嬰ニ短調', keySignature: '♯♯♯♯♯♯' },
+    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭' },
+    { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭' },
+    { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭' },
+    { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭' },
+    { german: 'd moll', reading: 'デー・モル', japanese: 'ニ短調', keySignature: '♭' }
 ];
 
 // 状態管理
@@ -40,7 +40,9 @@ const slotList = document.getElementById('slotList');
 const startButton = document.getElementById('startButton');
 const resultContainer = document.getElementById('resultContainer');
 const resultGerman = document.getElementById('resultGerman');
+const resultReading = document.getElementById('resultReading');
 const resultJapanese = document.getElementById('resultJapanese');
+const resultKeySignature = document.getElementById('resultKeySignature');
 const historyButton = document.getElementById('historyButton');
 const historyButtonText = document.getElementById('historyButtonText');
 const historyContainer = document.getElementById('historyContainer');
@@ -162,7 +164,9 @@ function spin() {
 // 結果表示
 function showResult(scale) {
     resultGerman.textContent = scale.german;
+    resultReading.textContent = scale.reading;
     resultJapanese.textContent = scale.japanese;
+    resultKeySignature.textContent = scale.keySignature;
     resultContainer.style.display = 'block';
 }
 
