@@ -49,9 +49,12 @@
 
             <!-- 結果表示 -->
             <div class="result-container" id="resultContainer" style="display: none;">
-                <p class="result-label">今日の音階は</p>
                 <p class="result-scale-german" id="resultGerman"></p>
-                <p class="result-scale-japanese" id="resultJapanese"></p>
+                <p class="result-scale-reading" id="resultReading"></p>
+                <div class="result-scale-info">
+                    <p class="result-scale-japanese" id="resultJapanese"></p>
+                    <p class="result-scale-key-signature" id="resultKeySignature"></p>
+                </div>
             </div>
 
             <!-- 練習履歴ボタン -->
@@ -81,7 +84,7 @@
                 <span id="tableButtonText">音階一覧表を見る</span>
             </button>
 
-            <!-- ä¸€è¦§è¡¨è¡¨ç¤º -->
+            <!-- 一覧表表示 -->
             <div class="table-container" id="tableContainer" style="display: none;">
                 <h3 class="table-title">音階一覧表</h3>
                 
