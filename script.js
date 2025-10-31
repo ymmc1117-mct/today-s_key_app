@@ -1,31 +1,31 @@
-// 音階データ
+// 音階データ（音程情報付き）
 const scales = [
     // 長調
-    { german: 'C dur', reading: 'ツェー・ドゥア', japanese: 'ハ長調', keySignature: '調号なし' },
-    { german: 'G dur', reading: 'ゲー・ドゥア', japanese: 'ト長調', keySignature: '♯' },
-    { german: 'D dur', reading: 'デー・ドゥア', japanese: 'ニ長調', keySignature: '♯♯' },
-    { german: 'A dur', reading: 'アー・ドゥア', japanese: 'イ長調', keySignature: '♯♯♯' },
-    { german: 'E dur', reading: 'エー・ドゥア', japanese: 'ホ長調', keySignature: '♯♯♯♯' },
-    { german: 'B dur', reading: 'ベー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯' },
-    { german: 'Ges dur', reading: 'ゲス・ドゥア', japanese: '変ト長調', keySignature: '♭♭♭♭♭♭' },
-    { german: 'Des dur', reading: 'デス・ドゥア', japanese: '変ニ長調', keySignature: '♭♭♭♭♭' },
-    { german: 'As dur', reading: 'アス・ドゥア', japanese: '変イ長調', keySignature: '♭♭♭♭' },
-    { german: 'Es dur', reading: 'エス・ドゥア', japanese: '変ホ長調', keySignature: '♭♭♭' },
-    { german: 'B dur', reading: 'ベー・ドゥア', japanese: '変ロ長調', keySignature: '♭♭' },
-    { german: 'F dur', reading: 'エフ・ドゥア', japanese: 'ヘ長調', keySignature: '♭' },
+    { german: 'C dur', reading: 'ツェー・ドゥア', japanese: 'ハ長調', keySignature: '調号なし', notes: ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'] },
+    { german: 'G dur', reading: 'ゲー・ドゥア', japanese: 'ト長調', keySignature: '♯', notes: ['G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F#5', 'G5'] },
+    { german: 'D dur', reading: 'デー・ドゥア', japanese: 'ニ長調', keySignature: '♯♯', notes: ['D4', 'E4', 'F#4', 'G4', 'A4', 'B4', 'C#5', 'D5'] },
+    { german: 'A dur', reading: 'アー・ドゥア', japanese: 'イ長調', keySignature: '♯♯♯', notes: ['A4', 'B4', 'C#5', 'D5', 'E5', 'F#5', 'G#5', 'A5'] },
+    { german: 'E dur', reading: 'エー・ドゥア', japanese: 'ホ長調', keySignature: '♯♯♯♯', notes: ['E4', 'F#4', 'G#4', 'A4', 'B4', 'C#5', 'D#5', 'E5'] },
+    { german: 'B dur', reading: 'ベー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯', notes: ['B4', 'C#5', 'D#5', 'E5', 'F#5', 'G#5', 'A#5', 'B5'] },
+    { german: 'Ges dur', reading: 'ゲス・ドゥア', japanese: '変ト長調', keySignature: '♭♭♭♭♭♭', notes: ['Gb4', 'Ab4', 'Bb4', 'Cb5', 'Db5', 'Eb5', 'F5', 'Gb5'] },
+    { german: 'Des dur', reading: 'デス・ドゥア', japanese: '変ニ長調', keySignature: '♭♭♭♭♭', notes: ['Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5', 'Db5'] },
+    { german: 'As dur', reading: 'アス・ドゥア', japanese: '変イ長調', keySignature: '♭♭♭♭', notes: ['Ab4', 'Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'G5', 'Ab5'] },
+    { german: 'Es dur', reading: 'エス・ドゥア', japanese: '変ホ長調', keySignature: '♭♭♭', notes: ['Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5', 'D5', 'Eb5'] },
+    { german: 'B dur', reading: 'ベー・ドゥア', japanese: '変ロ長調', keySignature: '♭♭', notes: ['Bb4', 'C5', 'D5', 'Eb5', 'F5', 'G5', 'A5', 'Bb5'] },
+    { german: 'F dur', reading: 'エフ・ドゥア', japanese: 'ヘ長調', keySignature: '♭', notes: ['F4', 'G4', 'A4', 'Bb4', 'C5', 'D5', 'E5', 'F5'] },
     // 短調
-    { german: 'a moll', reading: 'アー・モル', japanese: 'イ短調', keySignature: '調号なし' },
-    { german: 'e moll', reading: 'エー・モル', japanese: 'ホ短調', keySignature: '♯' },
-    { german: 'h moll', reading: 'ハー・モル', japanese: 'ロ短調', keySignature: '♯♯' },
-    { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯' },
-    { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯' },
-    { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯' },
-    { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭' },
-    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭' },
-    { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭' },
-    { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭' },
-    { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭' },
-    { german: 'd moll', reading: 'デー・モル', japanese: 'ニ短調', keySignature: '♭' }
+    { german: 'a moll', reading: 'アー・モル', japanese: 'イ短調', keySignature: '調号なし', notes: ['A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5'] },
+    { german: 'e moll', reading: 'エー・モル', japanese: 'ホ短調', keySignature: '♯', notes: ['E4', 'F#4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5'] },
+    { german: 'h moll', reading: 'ハー・モル', japanese: 'ロ短調', keySignature: '♯♯', notes: ['B4', 'C#5', 'D5', 'E5', 'F#5', 'G5', 'A5', 'B5'] },
+    { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯', notes: ['F#4', 'G#4', 'A4', 'B4', 'C#5', 'D5', 'E5', 'F#5'] },
+    { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯', notes: ['C#4', 'D#4', 'E4', 'F#4', 'G#4', 'A4', 'B4', 'C#5'] },
+    { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯', notes: ['G#4', 'A#4', 'B4', 'C#5', 'D#5', 'E5', 'F#5', 'G#5'] },
+    { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭', notes: ['Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'Cb5', 'Db5', 'Eb5'] },
+    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭', notes: ['Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'Gb5', 'Ab5', 'Bb5'] },
+    { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭', notes: ['F4', 'G4', 'Ab4', 'Bb4', 'C5', 'Db5', 'Eb5', 'F5'] },
+    { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭', notes: ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'] },
+    { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭', notes: ['G4', 'A4', 'Bb4', 'C5', 'D5', 'Eb5', 'F5', 'G5'] },
+    { german: 'd moll', reading: 'デー・モル', japanese: 'ニ短調', keySignature: '♭', notes: ['D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5', 'D5'] }
 ];
 
 // 状態管理
@@ -34,6 +34,8 @@ let currentScale = null;
 let history = [];
 let showHistory = false;
 let showTable = false;
+let isPlayingAudio = false;
+let synth = null;
 
 // DOM要素
 const slotList = document.getElementById('slotList');
@@ -55,9 +57,84 @@ const tableContainer = document.getElementById('tableContainer');
 function init() {
     loadHistory();
     initSlotList();
+    initAudio();
     startButton.addEventListener('click', spin);
     historyButton.addEventListener('click', toggleHistory);
     tableButton.addEventListener('click', toggleTable);
+    initScaleCardListeners();
+}
+
+// 音声の初期化
+async function initAudio() {
+    try {
+        // Tone.jsのシンセサイザーを作成
+        synth = new Tone.Synth({
+            oscillator: {
+                type: 'triangle'
+            },
+            envelope: {
+                attack: 0.005,
+                decay: 0.1,
+                sustain: 0.3,
+                release: 0.3
+            }
+        }).toDestination();
+    } catch (e) {
+        console.error('Audio initialization failed:', e);
+    }
+}
+
+// 音階カードにクリックリスナーを追加
+function initScaleCardListeners() {
+    const scaleCards = document.querySelectorAll('.scale-card');
+    scaleCards.forEach(card => {
+        card.addEventListener('click', async () => {
+            if (isPlayingAudio) return;
+            
+            const scaleName = card.getAttribute('data-scale');
+            const scale = scales.find(s => s.german === scaleName);
+            
+            if (scale) {
+                await playScale(scale, card);
+            }
+        });
+    });
+}
+
+// 音階を再生
+async function playScale(scale, visualElement = null) {
+    if (isPlayingAudio || !synth) return;
+    
+    isPlayingAudio = true;
+    
+    // 視覚的フィードバック
+    if (visualElement) {
+        visualElement.classList.add('playing');
+    }
+    
+    try {
+        // Tone.jsのオーディオコンテキストを開始
+        await Tone.start();
+        
+        // 各音を順番に再生
+        const now = Tone.now();
+        scale.notes.forEach((note, index) => {
+            synth.triggerAttackRelease(note, '8n', now + index * 0.4);
+        });
+        
+        // 全ての音が終わるまで待つ
+        await new Promise(resolve => setTimeout(resolve, scale.notes.length * 400 + 500));
+        
+    } catch (e) {
+        console.error('Audio playback failed:', e);
+    } finally {
+        isPlayingAudio = false;
+        
+        // 視覚的フィードバックを解除
+        if (visualElement) {
+            visualElement.classList.remove('playing');
+        }
+    }
 }
 
 // スロットリストの初期化
@@ -114,7 +191,7 @@ function saveHistory(scale) {
 
 // スロット回転
 function spin() {
-    if (isSpinning) return;
+    if (isSpinning || isPlayingAudio) return;
     
     isSpinning = true;
     startButton.disabled = true;
@@ -154,6 +231,11 @@ function spin() {
             startButton.disabled = false;
             showResult(finalScale);
             saveHistory(finalScale);
+            
+            // 音階を自動再生
+            setTimeout(() => {
+                playScale(finalScale);
+            }, 300);
         }
     }
     
