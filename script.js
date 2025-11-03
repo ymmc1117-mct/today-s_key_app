@@ -126,10 +126,10 @@ async function playScale(scale, visualElement = null) {
         // Tone.jsのオーディオコンテキストを開始
         await Tone.start();
         
-        // テンポ100 = 1分間に100拍 = 1拍は0.6秒
+        // テンポ
         const now = Tone.now();
-        const noteInterval = 0.4; // テンポ100で1拍分
-        const noteDuration = 0.3; // 音の長さ（0.3秒）
+        const noteInterval = 0.4; // テンポ
+        const noteDuration = 0.4; // 音の長さ（0.4秒）
         
         scale.notes.forEach((note, index) => {
             synth.triggerAttackRelease(note, noteDuration, now + index * noteInterval);
