@@ -1,4 +1,4 @@
-// 音階データ（音程情報付き）
+// 音階データ（音程情報付き - 短調は和声短音階）
 const scales = [
     // 長調
     { german: 'C dur', reading: 'ツェー・ドゥア', japanese: 'ハ長調', keySignature: '調号なし', notes: ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'] },
@@ -13,19 +13,19 @@ const scales = [
     { german: 'Es dur', reading: 'エス・ドゥア', japanese: '変ホ長調', keySignature: '♭♭♭', notes: ['Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5', 'D5', 'Eb5'] },
     { german: 'B dur', reading: 'ベー・ドゥア', japanese: '変ロ長調', keySignature: '♭♭', notes: ['Bb4', 'C5', 'D5', 'Eb5', 'F5', 'G5', 'A5', 'Bb5'] },
     { german: 'F dur', reading: 'エフ・ドゥア', japanese: 'ヘ長調', keySignature: '♭', notes: ['F4', 'G4', 'A4', 'Bb4', 'C5', 'D5', 'E5', 'F5'] },
-    // 短調
-    { german: 'a moll', reading: 'アー・モル', japanese: 'イ短調', keySignature: '調号なし', notes: ['A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5'] },
-    { german: 'e moll', reading: 'エー・モル', japanese: 'ホ短調', keySignature: '♯', notes: ['E4', 'F#4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5'] },
-    { german: 'h moll', reading: 'ハー・モル', japanese: 'ロ短調', keySignature: '♯♯', notes: ['B4', 'C#5', 'D5', 'E5', 'F#5', 'G5', 'A5', 'B5'] },
-    { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯', notes: ['F#4', 'G#4', 'A4', 'B4', 'C#5', 'D5', 'E5', 'F#5'] },
-    { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯', notes: ['C#4', 'D#4', 'E4', 'F#4', 'G#4', 'A4', 'B4', 'C#5'] },
-    { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯', notes: ['G#4', 'A#4', 'B4', 'C#5', 'D#5', 'E5', 'F#5', 'G#5'] },
-    { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭', notes: ['Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'Cb5', 'Db5', 'Eb5'] },
-    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭', notes: ['Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'Gb5', 'Ab5', 'Bb5'] },
-    { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭', notes: ['F4', 'G4', 'Ab4', 'Bb4', 'C5', 'Db5', 'Eb5', 'F5'] },
-    { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭', notes: ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'] },
-    { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭', notes: ['G4', 'A4', 'Bb4', 'C5', 'D5', 'Eb5', 'F5', 'G5'] },
-    { german: 'd moll', reading: 'デー・モル', japanese: 'ニ短調', keySignature: '♭', notes: ['D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5', 'D5'] }
+    // 短調（和声短音階 - 第7音を半音上げ）
+    { german: 'a moll', reading: 'アー・モル', japanese: 'イ短調', keySignature: '調号なし', notes: ['A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G#5', 'A5'] },
+    { german: 'e moll', reading: 'エー・モル', japanese: 'ホ短調', keySignature: '♯', notes: ['E4', 'F#4', 'G4', 'A4', 'B4', 'C5', 'D#5', 'E5'] },
+    { german: 'h moll', reading: 'ハー・モル', japanese: 'ロ短調', keySignature: '♯♯', notes: ['B4', 'C#5', 'D5', 'E5', 'F#5', 'G5', 'A#5', 'B5'] },
+    { german: 'fis moll', reading: 'フィス・モル', japanese: '嬰ヘ短調', keySignature: '♯♯♯', notes: ['F#4', 'G#4', 'A4', 'B4', 'C#5', 'D5', 'E#5', 'F#5'] },
+    { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯', notes: ['C#4', 'D#4', 'E4', 'F#4', 'G#4', 'A4', 'B#4', 'C#5'] },
+    { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯', notes: ['G#4', 'A#4', 'B4', 'C#5', 'D#5', 'E5', 'F##5', 'G#5'] },
+    { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭', notes: ['Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'Cb5', 'D5', 'Eb5'] },
+    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭', notes: ['Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'Gb5', 'A5', 'Bb5'] },
+    { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭', notes: ['F4', 'G4', 'Ab4', 'Bb4', 'C5', 'Db5', 'E5', 'F5'] },
+    { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭', notes: ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'B4', 'C5'] },
+    { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭', notes: ['G4', 'A4', 'Bb4', 'C5', 'D5', 'Eb5', 'F#5', 'G5'] },
+    { german: 'd moll', reading: 'デー・モル', japanese: 'ニ短調', keySignature: '♭', notes: ['D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C#5', 'D5'] }
 ];
 
 // 状態管理
@@ -64,21 +64,31 @@ function init() {
     initScaleCardListeners();
 }
 
-// 音声の初期化
+// 音声の初期化（よりピアノらしい音色に改良）
 async function initAudio() {
     try {
-        // Tone.jsのシンセサイザーを作成
+        // ピアノらしい音色を作成
         synth = new Tone.Synth({
             oscillator: {
-                type: 'triangle'
+                type: 'sine'
             },
             envelope: {
-                attack: 0.005,
-                decay: 0.1,
-                sustain: 0.3,
-                release: 0.3
-            }
+                attack: 0.008,
+                decay: 0.2,
+                sustain: 0.1,
+                release: 1.2
+            },
+            volume: -8
         }).toDestination();
+        
+        // リバーブを追加してより自然な響きに
+        const reverb = new Tone.Reverb({
+            decay: 1.5,
+            wet: 0.15
+        }).toDestination();
+        
+        synth.connect(reverb);
+        
     } catch (e) {
         console.error('Audio initialization failed:', e);
     }
@@ -101,7 +111,7 @@ function initScaleCardListeners() {
     });
 }
 
-// 音階を再生
+// 音階を再生（テンポ100で1拍ずつ）
 async function playScale(scale, visualElement = null) {
     if (isPlayingAudio || !synth) return;
     
@@ -116,14 +126,17 @@ async function playScale(scale, visualElement = null) {
         // Tone.jsのオーディオコンテキストを開始
         await Tone.start();
         
-        // 各音を順番に再生
+        // テンポ100 = 1分間に100拍 = 1拍は0.6秒
         const now = Tone.now();
+        const noteInterval = 0.4; // テンポ100で1拍分
+        const noteDuration = 0.3; // 音の長さ（0.3秒）
+        
         scale.notes.forEach((note, index) => {
-            synth.triggerAttackRelease(note, '8n', now + index * 0.4);
+            synth.triggerAttackRelease(note, noteDuration, now + index * noteInterval);
         });
         
         // 全ての音が終わるまで待つ
-        await new Promise(resolve => setTimeout(resolve, scale.notes.length * 400 + 500));
+        await new Promise(resolve => setTimeout(resolve, scale.notes.length * noteInterval * 1000 + 800));
         
     } catch (e) {
         console.error('Audio playback failed:', e);
