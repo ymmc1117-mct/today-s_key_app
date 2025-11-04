@@ -111,7 +111,7 @@ function initScaleCardListeners() {
     });
 }
 
-// 音階を再生（テンポ100で1拍ずつ）
+// 音階を再生
 async function playScale(scale, visualElement = null) {
     if (isPlayingAudio || !synth) return;
     
@@ -129,7 +129,7 @@ async function playScale(scale, visualElement = null) {
         // テンポ
         const now = Tone.now();
         const noteInterval = 0.4; // テンポ
-        const noteDuration = 0.4; // 音の長さ（0.4秒）
+        const noteDuration = 0.35; // 音の長さ（0.35秒）
         
         scale.notes.forEach((note, index) => {
             synth.triggerAttackRelease(note, noteDuration, now + index * noteInterval);
