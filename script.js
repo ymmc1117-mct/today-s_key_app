@@ -126,9 +126,8 @@ async function playScale(scale, visualElement = null) {
         // Tone.jsのオーディオコンテキストを開始
         await Tone.start();
         
-        // テンポ
         const now = Tone.now();
-        const noteInterval = 0.4; // テンポ
+        const noteInterval = 0.4; // 音の間隔（0.4秒）
         const noteDuration = 0.35; // 音の長さ（0.35秒）
         
         scale.notes.forEach((note, index) => {
@@ -198,7 +197,7 @@ function saveHistory(scale) {
         date: new Date().toISOString(),
         scale: scale
     };
-    history = [newEntry, ...history].slice(0, 50);
+    history = [newEntry, ...history];
     localStorage.setItem('piano-scale-history', JSON.stringify(history));
 }
 
@@ -280,14 +279,17 @@ function toggleHistory() {
     }
 }
 
-// 履歴のレンダリング
+// 履歴のレンダリング（最新10件のみ表示、ボタンは最下部）
 function renderHistory() {
     if (history.length === 0) {
         historyListElement.innerHTML = '<p class="history-empty">まだ履歴がありません</p>';
         return;
     }
     
-    historyListElement.innerHTML = history.map((entry, index) => {
+    // 最新10件のみ表示
+    const displayHistory = history.slice(0, 10);
+    
+    const historyItems = displayHistory.map((entry, index) => {
         const date = new Date(entry.date);
         const month = date.getMonth() + 1;
         const day = date.getDate();
@@ -310,6 +312,26 @@ function renderHistory() {
             </div>
         `;
     }).join('');
+    
+    const clearAllButton = `
+        <div style="text-align: center; margin-top: 1rem;">
+            <button onclick="clearAllHistory()" style="
+                background: white;
+                border: 1px solid #f9a8d4;
+                border-radius: 9999px;
+                color: #f472b6;
+                padding: 0.5rem 1.5rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s;
+            " onmouseover="this.style.background='#fdf2f8'" onmouseout="this.style.background='white'">
+                すべて削除
+            </button>
+        </div>
+    `;
+    
+    historyListElement.innerHTML = historyItems + clearAllButton;
 }
 
 // 履歴アイテムの削除
@@ -317,6 +339,15 @@ function deleteHistoryItem(index) {
     history.splice(index, 1);
     localStorage.setItem('piano-scale-history', JSON.stringify(history));
     renderHistory();
+}
+
+// 履歴の全削除
+function clearAllHistory() {
+    if (confirm('すべての履歴を削除しますか？')) {
+        history = [];
+        localStorage.setItem('piano-scale-history', JSON.stringify(history));
+        renderHistory();
+    }
 }
 
 // 一覧表の表示/非表示
