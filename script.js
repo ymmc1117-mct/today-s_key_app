@@ -35,7 +35,8 @@ let history = [];
 let showHistory = false;
 let showTable = false;
 let isPlayingAudio = false;
-let synth = null;
+let audioContext = null;
+let piano = null;
 
 // DOM要素
 const slotList = document.getElementById('slotList');
@@ -64,31 +65,16 @@ function init() {
     initScaleCardListeners();
 }
 
-// 音声の初期化（よりピアノらしい音色に改良）
+// 音声の初期化（SoundFont.js でリアルなピアノ音）
 async function initAudio() {
     try {
-        // ピアノらしい音色を作成
-        synth = new Tone.Synth({
-            oscillator: {
-                type: 'sine'
-            },
-            envelope: {
-                attack: 0.008,
-                decay: 0.2,
-                sustain: 0.1,
-                release: 1.2
-            },
-            volume: -8
-        }).toDestination();
+        // AudioContext を1つだけ生成
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
         
-        // リバーブを追加してより自然な響きに
-        const reverb = new Tone.Reverb({
-            decay: 1.5,
-            wet: 0.15
-        }).toDestination();
+        // SoundFont.js でピアノ音源を読み込み
+        piano = await Soundfont.instrument(audioContext, 'acoustic_grand_piano');
         
-        synth.connect(reverb);
-        
+        console.log('Piano loaded successfully');
     } catch (e) {
         console.error('Audio initialization failed:', e);
     }
@@ -111,9 +97,9 @@ function initScaleCardListeners() {
     });
 }
 
-// 音階を再生
+// 音階を再生（SoundFont.js 使用）
 async function playScale(scale, visualElement = null) {
-    if (isPlayingAudio || !synth) return;
+    if (isPlayingAudio || !piano || !audioContext) return;
     
     isPlayingAudio = true;
     
@@ -123,16 +109,19 @@ async function playScale(scale, visualElement = null) {
     }
     
     try {
-        // Tone.jsのオーディオコンテキストを開始
-        await Tone.start();
+        // AudioContext を resume（ブラウザの自動再生ポリシー対応）
+        if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+        }
         
-        const now = Tone.now();
         const noteInterval = 0.4; // 音の間隔（0.4秒）
         const noteDuration = 0.35; // 音の長さ（0.35秒）
         
-        scale.notes.forEach((note, index) => {
-            synth.triggerAttackRelease(note, noteDuration, now + index * noteInterval);
-        });
+        // 各音を順番に再生
+        for (let i = 0; i < scale.notes.length; i++) {
+            const note = scale.notes[i];
+            piano.play(note, audioContext.currentTime + i * noteInterval, { duration: noteDuration });
+        }
         
         // 全ての音が終わるまで待つ
         await new Promise(resolve => setTimeout(resolve, scale.notes.length * noteInterval * 1000 + 800));
@@ -146,6 +135,34 @@ async function playScale(scale, visualElement = null) {
         if (visualElement) {
             visualElement.classList.remove('playing');
         }
+    }
+}
+
+// 和音を再生（将来のカデンツ機能用）
+async function playChord(notes, duration = 1.0) {
+    if (isPlayingAudio || !piano || !audioContext) return;
+    
+    isPlayingAudio = true;
+    
+    try {
+        // AudioContext を resume
+        if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+        }
+        
+        // 複数の音を同時に再生
+        const currentTime = audioContext.currentTime;
+        notes.forEach(note => {
+            piano.play(note, currentTime, { duration: duration });
+        });
+        
+        // 和音が終わるまで待つ
+        await new Promise(resolve => setTimeout(resolve, duration * 1000 + 200));
+        
+    } catch (e) {
+        console.error('Chord playback failed:', e);
+    } finally {
+        isPlayingAudio = false;
     }
 }
 
