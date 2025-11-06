@@ -114,8 +114,8 @@ async function playScale(scale, visualElement = null) {
             await audioContext.resume();
         }
         
-        const noteInterval = 0.4; // 音の間隔（0.4秒）
-        const noteDuration = 0.35; // 音の長さ（0.35秒）
+        const noteInterval = 0.3; // 音の間隔
+        const noteDuration = 0.29; // 音の長さ
         
         // 各音を順番に再生
         for (let i = 0; i < scale.notes.length; i++) {
