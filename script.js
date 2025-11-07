@@ -6,7 +6,7 @@ const scales = [
     { german: 'D dur', reading: 'デー・ドゥア', japanese: 'ニ長調', keySignature: '♯♯', notes: ['D4', 'E4', 'F#4', 'G4', 'A4', 'B4', 'C#5', 'D5'] },
     { german: 'A dur', reading: 'アー・ドゥア', japanese: 'イ長調', keySignature: '♯♯♯', notes: ['A4', 'B4', 'C#5', 'D5', 'E5', 'F#5', 'G#5', 'A5'] },
     { german: 'E dur', reading: 'エー・ドゥア', japanese: 'ホ長調', keySignature: '♯♯♯♯', notes: ['E4', 'F#4', 'G#4', 'A4', 'B4', 'C#5', 'D#5', 'E5'] },
-    { german: 'B dur', reading: 'ベー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯', notes: ['B4', 'C#5', 'D#5', 'E5', 'F#5', 'G#5', 'A#5', 'B5'] },
+    { german: 'H dur', reading: 'ハー・ドゥア', japanese: 'ロ長調', keySignature: '♯♯♯♯♯', notes: ['B4', 'C#5', 'D#5', 'E5', 'F#5', 'G#5', 'A#5', 'B5'] },
     { german: 'Ges dur', reading: 'ゲス・ドゥア', japanese: '変ト長調', keySignature: '♭♭♭♭♭♭', notes: ['Gb4', 'Ab4', 'Bb4', 'Cb5', 'Db5', 'Eb5', 'F5', 'Gb5'] },
     { german: 'Des dur', reading: 'デス・ドゥア', japanese: '変ニ長調', keySignature: '♭♭♭♭♭', notes: ['Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5', 'Db5'] },
     { german: 'As dur', reading: 'アス・ドゥア', japanese: '変イ長調', keySignature: '♭♭♭♭', notes: ['Ab4', 'Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'G5', 'Ab5'] },
@@ -21,7 +21,7 @@ const scales = [
     { german: 'cis moll', reading: 'ツィス・モル', japanese: '嬰ハ短調', keySignature: '♯♯♯♯', notes: ['C#4', 'D#4', 'E4', 'F#4', 'G#4', 'A4', 'B#4', 'C#5'] },
     { german: 'gis moll', reading: 'ギス・モル', japanese: '嬰ト短調', keySignature: '♯♯♯♯♯', notes: ['G#4', 'A#4', 'B4', 'C#5', 'D#5', 'E5', 'F##5', 'G#5'] },
     { german: 'es moll', reading: 'エス・モル', japanese: '変ホ短調', keySignature: '♭♭♭♭♭♭', notes: ['Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'Cb5', 'D5', 'Eb5'] },
-    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭', notes: ['Bb4', 'C5', 'Db5', 'Eb5', 'F5', 'Gb5', 'A5', 'Bb5'] },
+    { german: 'b moll', reading: 'ベー・モル', japanese: '変ロ短調', keySignature: '♭♭♭♭♭', notes: ['Bb3', 'C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'A4', 'Bb4'] },
     { german: 'f moll', reading: 'エフ・モル', japanese: 'ヘ短調', keySignature: '♭♭♭♭', notes: ['F4', 'G4', 'Ab4', 'Bb4', 'C5', 'Db5', 'E5', 'F5'] },
     { german: 'c moll', reading: 'ツェー・モル', japanese: 'ハ短調', keySignature: '♭♭♭', notes: ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'B4', 'C5'] },
     { german: 'g moll', reading: 'ゲー・モル', japanese: 'ト短調', keySignature: '♭♭', notes: ['G4', 'A4', 'Bb4', 'C5', 'D5', 'Eb5', 'F#5', 'G5'] },
@@ -114,8 +114,8 @@ async function playScale(scale, visualElement = null) {
             await audioContext.resume();
         }
         
-        const noteInterval = 0.3; // 音の間隔
-        const noteDuration = 0.29; // 音の長さ
+        const noteInterval = 0.45; // 音の間隔（0.45秒）
+        const noteDuration = 0.46; // 音の長さ（0.46秒）
         
         // 各音を順番に再生
         for (let i = 0; i < scale.notes.length; i++) {
